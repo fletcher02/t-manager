@@ -1,12 +1,15 @@
-from app import app, db
-import requests
 import datetime
-import urllib,urllib2
+
+import requests
+
+from app import app, db
+
 
 class TorrentManager(db.Model):
-    __tablename__ = 'Table_Test'
+    __tablename__ = 'api_tokens'
     id = db.Column(db.Integer, primary_key=True)
-    firstname = db.Column(db.String(64), index=True)
+    login_id = db.Column(db.String(64), index=True)
+    token = db.Column(db.String(64), index=True)
 
     def __repr__(self):
         return '<test {}>'.format(self.id)
