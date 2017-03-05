@@ -1,13 +1,16 @@
-<!doctype html>
-<title>Page d'accueil Flask</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<body>
-
-<div class=page>
-    <h1>Flask Accueil</h1>
-    <p> Hello stranger ! </p>
-    <p> {{ value }} </p>
-    <p> {{ result }} </p>
+{% extends "base.html" %}
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+<div class="login">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <input type="username" name="username" placeholder="Username" required="required">
+        <input type="password" name="password_api" placeholder="Your T411 password" required="required">
+        <input type="password" name="password_tmanager" placeholder="Your T-Manager password" required="required">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
 </div>
-</body>
-</html>
+{% endif %}
+{% endblock %}

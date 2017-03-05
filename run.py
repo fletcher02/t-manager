@@ -1,5 +1,7 @@
+from os import urandom
+
 from app import app
-from app import views
 
 if __name__ == "__main__":
-    app.run(debug=app.config["DEBUG"])
+    app.secret_key = urandom(12)
+    app.run(debug=app.config["DEBUG"], host=app.config["HOST"], port=app.config["PORT"])

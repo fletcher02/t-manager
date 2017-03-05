@@ -2,12 +2,6 @@
 <title>Page d'accueil Flask</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <body>
-
-<div class=page>
-    <h1>Flask Accueil</h1>
-    <p> Hello stranger ! </p>
-    <p> {{ value }} </p>
-    <p> {{ result }} </p>
-</div>
+{% block body %}{% endblock %}
 </body>
 </html>
